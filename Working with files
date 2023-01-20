@@ -1,0 +1,55 @@
+onst fs = require('fs');
+fs.readFile("test.txt",'utf8',(err,data)=>{
+    if(err)throw err;
+    console.log(data);
+})
+
+const data = fs.readFileSync("test.txt",{encoding:'utf-8',flag:'r'});
+console.log(data);
+
+fs.stat('test.txt',(err,stats)=>{
+    if(err){
+        console.log("Error");
+            return
+    }
+    console.log(stats.isFile());
+})
+
+/* asynchronous method for writing in the file
+
+const fs = require('fs');
+
+const content = [{
+    type:"Node Application"
+}];
+
+fs.writeFileSync('test.json',JSON.stringify(content));
+*/
+
+// sync method for writing in the file
+/*
+
+const content = "Node Application";
+fs.writeFile('test.txt',content,{flag:'a+'},err=>{
+    if(err)
+    {
+        console.log(err);
+        return;
+    }
+    console.log("succuessfully written!");
+});
+
+// unlinking or deleting the files
+
+const fs = require('fs');
+fs.unlinkSync('test.txt',err=>{
+    if(err){
+        console.log("err");
+        return;
+    }
+    console.log("succuessfully unlinked!");
+});
+
+
+
+
