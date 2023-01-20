@@ -1,0 +1,20 @@
+const path = require('path');
+
+file = path.basename('test.json');
+file1 = path.dirname('learn\test.json');
+file2= path.isAbsolute('learn\test.json');
+file3= path.resolve('learn\test.json');
+console.log(file3);
+*/
+
+                    
+
+const events = require('events');
+
+let ev = new events.EventEmitter();
+
+ev.once('myevent',function(data) {
+    console.log("event:",data);
+})
+
+ev.emit('myevent',"data is now being emitted by emitter");
